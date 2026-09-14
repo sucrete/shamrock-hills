@@ -19,10 +19,10 @@ const Contact = () => {
     <Fragment>
       <main>
         <HalfHero
-          BGHeroSrc="/images/hero-images/hv-5.webp"
-          imageOffset="-40%"
-          imageHeight="190%"
-          overlayOpacity=".55"
+          BGHeroSrc="/images/shamrock-hills/banners/banner-4.webp"
+          imageOffset="-12%"
+          imageHeight="120%"
+          overlayOpacity=".7"
           heroText="Contact Us"
         />
         <ContactInfo />

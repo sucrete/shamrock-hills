@@ -18,10 +18,10 @@ const Scorecard = () => {
     <Fragment>
       <main className="bg-background-4">
         <HalfHero
-          BGHeroSrc="/images/shared/feeling-this-fairway.jpg"
-          imageOffset="-27%"
-          imageHeight="170%"
-          overlayOpacity=".35"
+          BGHeroSrc="/images/shamrock-hills/banners/banner-4.webp"
+          imageOffset="-12%"
+          imageHeight="120%"
+          overlayOpacity=".7"
           heroText="Scorecard"
         />
         <div className="main-container py-[2rem] md:py-[12rem]">

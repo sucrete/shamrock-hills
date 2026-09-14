@@ -22,7 +22,7 @@ const Weather = async () => {
 const CourseInfo = async () => {
   return (
     <section className="bg-[#f8feda] before:content-[''] before:h-full before:w-[20%] before:max-md:hidden before:bg-[linear-gradient(to_right,#fafafa_50%,transparent)] before:absolute before:inset-0 after:content-[''] after:h-full after:w-[20%] after:max-md:hidden after:bg-[linear-gradient(to_right,#fafafa_50%,transparent)] after:absolute after:rotate-180 after:right-0 after:top-0">
-      <div className="main-container py-10 sm:py-7 ">
+      <div className="main-container py-7 sm:py-6 ">
         <div className="max-w-[950px] grid grid-cols-3 max-md:space-y-5 mx-auto">
           <div className="col-span-12 sm:col-span-1 md:border-r border-[#dbf45c]">
             <RevealAnimation delay={0.3} offset={10}>

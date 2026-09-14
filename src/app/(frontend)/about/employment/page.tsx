@@ -20,10 +20,10 @@ const Employment = async () => {
     <Fragment>
       <main className="bg-background-2">
         <HalfHero
-          BGHeroSrc="/images/shared/feeling-this-fairway.jpg"
-          imageOffset="-27%"
-          imageHeight="170%"
-          overlayOpacity=".35"
+          BGHeroSrc="/images/shamrock-hills/banners/banner-4.webp"
+          imageOffset="-12%"
+          imageHeight="120%"
+          overlayOpacity=".7"
           heroText="Employment & Volunteers"
         />
         {data?.body && (
