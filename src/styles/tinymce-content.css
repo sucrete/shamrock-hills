@@ -1,0 +1,47 @@
+/* Frontend rendering rules for TinyMCE-authored HTML (dangerouslySetInnerHTML).
+   Kept separate from base.css/typography.css because these rules apply only
+   inside .tinymce-content, not to the whole document.
+
+   No margins are applied to any element here — the AN1 editor's own preview
+   (via Tailwind's preflight reset) shows every element with zero margin, so
+   the frontend is kept margin-free too. Otherwise what an editor sees while
+   typing wouldn't match what gets published. */
+.tinymce-content {
+  & h4 {
+    @apply text-[19px] sm:text-[25px];
+  }
+  & ul {
+    @apply list-disc pl-6;
+  }
+  & ol {
+    @apply list-decimal pl-6;
+  }
+  & a:not(.btn) {
+    @apply text-[#005b2f] underline decoration-[#005b2f]/25 underline-offset-4 transition-opacity;
+    &:hover {
+      @apply opacity-70;
+    }
+  }
+  & img {
+    @apply block h-auto max-w-full rounded-2xl;
+  }
+  & table {
+    @apply w-full border-separate border-spacing-0;
+    & td,
+    & th {
+      @apply p-5 text-center align-middle;
+    }
+    & td:first-child,
+    & th:first-child {
+      @apply text-left;
+    }
+  }
+  & hr {
+    @apply bg-[#dce5d7] h-px w-full border-none;
+  }
+  & mark.highlight-green {
+    background-color: var(--color-ns-green);
+    padding: 0 0.05em;
+    border-radius: 2px;
+  }
+}

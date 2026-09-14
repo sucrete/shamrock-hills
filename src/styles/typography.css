@@ -1,0 +1,86 @@
+/* =========================
+Default Body and Typography styles
+=========================== */
+html {
+  @apply bg-[#01251e];
+}
+
+body {
+  @apply font-body font-medium antialiased [&_>_:not(h1,h2,h3,h4,h5,h6)]:tracking-[-.25px] [&_>_:not(h1,h2,h3,h4,h5,h6)]:font-[400];
+
+}
+
+/* -------------------------
+area-variable modifiers.
+
+font-variation-settings is all-or-nothing — a rule touching one axis has to
+restate all four — so the modifiers below only set custom properties, and the
+single rule that follows assembles the axis list from them. That keeps them
+composable in any combination and in any order: .area-light.area-italic is a
+lighter slant, not whichever class happens to come last in the file.
+
+The assembling rule has to sit on the element itself, not just an ancestor.
+font-variation-settings inherits as an already-computed value, so an element
+that only inherits it will not re-resolve these custom properties.
+
+Weights are relative: --fv-wght is 600 on headings and 500 in body copy (both
+set in base.css), so one modifier reads correctly in either context.
+Each works directly on an element, or on a wrapper to catch the headings inside.
+------------------------- */
+
+/* h1-h3 excluded below: they're set to Revans (a static font) in base.css, not
+   area-variable, so this font-family/font-variation-settings assignment would
+   only fight that rule for no visual benefit — the weight/slant custom
+   properties two blocks down still apply to them harmlessly, they're just
+   unread since Revans isn't wired to the axis system. */
+.area-italic:not(h1, h2, h3),
+.area-light:not(h1, h2, h3),
+.area-400:not(h1, h2, h3),
+.area-500:not(h1, h2, h3),
+.area-600:not(h1, h2, h3),
+.area-700:not(h1, h2, h3),
+.area-800:not(h1, h2, h3),
+:is(.area-italic, .area-light, .area-400, .area-500, .area-600, .area-700, .area-800)
+  :is(h4, h5, h6) {
+  font-family: 'area-variable', sans-serif;
+  font-variation-settings: 'INKT' 0, 'wght' calc(var(--fv-wght, 600) + var(--fv-wght-adjust, 0)), 'wdth' 100,
+    'slnt' var(--fv-slnt, 0);
+}
+
+/* Slant via the font's own 'slnt' axis — font-style stays normal, so the browser
+   never applies a faux oblique. */
+.area-italic,
+.area-italic :is(h1, h2, h3, h4, h5, h6) {
+  --fv-slnt: -10;
+}
+
+/* One step (100) lighter than whatever weight is in play: 500 on headings, 400
+   in body copy. An offset rather than an absolute, so it tracks --fv-wght if the
+   default heading weight is ever changed. */
+.area-light,
+.area-light :is(h1, h2, h3, h4, h5, h6) {
+  --fv-wght-adjust: -100;
+}
+
+/* Absolute weights, independent of the 600/500 heading/body defaults. Compose
+   with .area-italic (e.g. .area-800.area-italic). */
+.area-400,
+.area-400 :is(h1, h2, h3, h4, h5, h6) {
+  --fv-wght: 400;
+}
+.area-500,
+.area-500 :is(h1, h2, h3, h4, h5, h6) {
+  --fv-wght: 500;
+}
+.area-600,
+.area-600 :is(h1, h2, h3, h4, h5, h6) {
+  --fv-wght: 600;
+}
+.area-700,
+.area-700 :is(h1, h2, h3, h4, h5, h6) {
+  --fv-wght: 700;
+}
+.area-800,
+.area-800 :is(h1, h2, h3, h4, h5, h6) {
+  --fv-wght: 800;
+}

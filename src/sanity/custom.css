@@ -1,0 +1,343 @@
+[data-border][data-scheme='light'][data-tone='default'] {
+  background-color: #f6f6f8 !important;
+}
+*:not(:disabled):invalid + [data-scheme='light'][data-tone='default'] {
+  background-color: #ffe7e5 !important;
+}
+
+/* REMOVING UNNECESSARY BUTTONS */
+button[aria-label='Create new document']
+/* button[data-testid='action-Duplicate'], */
+/* div[data-ui='ReleasesNav']  */ {
+  display: none !important;
+}
+
+[class*='FormContainer'] {
+  & > [class*='RootWrapper'] {
+    & > div {
+      & > form[data-as='form'] {
+        & > [data-ui='Stack'] {
+          & > [class*='FormRowContainer'] {
+            /* padding-bottom: 5rem; */
+          }
+        }
+      }
+    }
+  }
+}
+
+.large-text-area {
+  height: 15rem;
+}
+
+/** RANGE SLIDER STYLING */
+.single-thumb {
+  background: #dddddf;
+  .range-slider__thumb[data-lower] {
+    width: 0;
+  }
+  .range-slider__range {
+    border-radius: 6px;
+    background: #29292b;
+    transition: all 0s;
+  }
+  .range-slider__thumb {
+    background: #3f3f43;
+    height: 21px;
+    width: 21px;
+    transition: all 0.15s ease;
+    box-shadow:
+      rgba(50, 50, 93, 0.15) 0px 6px 12px -2px,
+      rgba(0, 0, 0, 0.2) 0px 3px 7px -3px;
+    &:hover {
+      background: black;
+    }
+  }
+  .range-slider__thumb[data-active] {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+.slider-readout {
+  flex-basis: 60px;
+  height: 30px;
+  background: #29292b !important;
+  border-radius: 3px !important;
+  position: relative;
+  [data-ui='Text'] {
+    color: white;
+    /* height: 100%; */
+    /* width: 100%; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  &:after {
+    position: absolute;
+    content: '';
+    height: 10px;
+    width: 10px;
+    border-radius: 1px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    right: -4px;
+    background-color: #29292b;
+    /* background-color: yellow; */
+    z-index: -1;
+  }
+}
+
+/** SHORT PORTABLE TEXT BOX STYLING */
+/* CHANGES HEIGHT OF PORTABLE TEXT BOX */
+[data-testid='field-courseIntroTitle'] {
+  [data-testid='pt-editor'][data-fullscreen='false'] {
+    min-height: unset !important;
+    height: auto !important;
+    height: 5.25em !important;
+    /* REMOVES RESIZER IN TEXTBOX */
+    /* resize: none; */
+  }
+  [data-testid='scroll-container'] {
+    overflow: hidden;
+  }
+  /* REMOVES EXPANDER */
+  [class*='ToolbarCard'] > [data-ui='Flex'] > [data-ui='Box'] {
+    display: none;
+  }
+}
+
+/* CHANGING SIZE AND WEIGHT OF GROUP HEADINGS */
+[class*='FormRowContainer'] {
+  [data-ui='fieldHeaderContentBox'] {
+    legend {
+      [data-ui='Text'] {
+        span {
+          font-size: 22px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+/* DRAFT HIGHLIGHT MARKER */
+[data-testid='change-bar__marker']:after {
+  border-radius: 5px !important;
+  width: 3px !important;
+  opacity: 1 !important;
+  background-color: #ecd502 !important;
+}
+
+/* REMOVING BORDER AND BACKGROUND FROM FIRST CELL */
+.firstCellCard {
+  position: relative;
+  /* & > span {
+    & > span {
+      & > [data-border][data-scheme='light'] {
+        background-color: transparent !important;
+        box-shadow: none !important;
+      }
+    }
+  } */
+  & > span {
+    /* for the edit def button  */
+    &:not([data-ui='TextInput']) {
+      /* background-color: tomato; */
+      position: absolute;
+      display: block;
+      right: 5px;
+      transform: translateY(-50%);
+      top: 50%;
+      z-index: 77;
+      transition: all 0.25s ease;
+      opacity: 0;
+      [data-ui='MenuButton'] {
+        width: 25px;
+        height: 25px;
+        background-color: transparent;
+        backdrop-filter: blur(0px);
+        transition: all 0.25s ease;
+        div {
+          padding: 0;
+          transform: translateY(0px);
+        }
+        span,
+        div {
+          height: 100%;
+          width: 25px;
+          svg {
+            position: absolute;
+            top: 71%;
+            left: 56%;
+            transform: translate(-50%, -50%);
+            width: 25px;
+            height: auto;
+          }
+        }
+      }
+    }
+
+    & > span {
+      [data-border][data-scheme='light'] {
+        background-color: transparent !important;
+        box-shadow: none !important;
+      }
+    }
+  }
+  &:hover {
+    & > span {
+      &:not([data-ui='TextInput']) {
+        opacity: 1;
+        &:hover {
+          [data-ui='MenuButton'] {
+            background-color: #dddcd870;
+            backdrop-filter: blur(3px);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* SMALL DRAFT INDICATOR IN DOCUMENT LIST */
+[data-status='draft'] {
+  background-color: #e4ca00 !important;
+}
+
+/* DARKENS THE BACKGROUND OF A TOGGLE SWITCH */
+[type='checkbox'][value='false'] + [data-name='representation'] span:nth-of-type(1) {
+  background-color: #aba89b !important;
+}
+[type='checkbox'][value='true'] + [data-name='representation'] span:nth-of-type(1) {
+  background-color: #30c000 !important;
+}
+
+/* PUBLISH BUTTON */
+[data-ui='Button'][data-testid='action-publish'][data-disabled='false'] {
+  background-color: #2b210e !important;
+  pointer-events: unset;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px #2b210e !important;
+}
+
+/* REMOVING 'CREATE NEW DOCUMENT' BUTTON FROM FIRST PANE OF STUDIO */
+[data-ui='ListPane'] [data-testid='pane-header'] [data-ui='MenuButton'] {
+  display: none !important;
+}
+
+/* DRAFT BUTTON */
+/* [data-ui='Button'][data-testid='document-header-Draft-chip'][data-disabled='false'] {
+  border-color: #e4e2d8 !important;
+  background-color: #e4e2d8 !important;
+  box-shadow: inset 0 0 0 1px #e4e2d8;
+} */
+/* DRAFT BUTTON CIRCLE COLOR WHILE IN DRAFT MODE */
+/* [data-sanity-icon='dot'][data-testid='release-avatar-caution'] {
+  circle {
+    fill: #ecd502;
+    stroke: #ecd502;
+  }
+} */
+
+[data-ui='Calendar'] > [data-ui='Box']:nth-of-type(2) {
+  display: none;
+}
+
+/* STYLING "FORCE RE-RENDER" BUTTON WITHIN BULK DELETE PLUGIN */
+button[title='Force re-render'] span {
+  font-family: 'Inter' !important;
+}
+
+/* REMOVE EXTRANEOUS BUTTONS IN NAVBAR */
+#sanity {
+  [data-ui='ToolScreen'] {
+    [data-ui='Navbar'] {
+      [data-ui='Grid'] {
+        [data-ui='Flex']:nth-of-type(3) {
+          /* ⬇️ trial notice button (w/ a lightning bolt icon in the center) */
+          /* & > span:nth-of-type(1) {
+            display: none;
+          }
+          span {
+            #global-presence-menu,
+            #menu-button-resources {
+              display: none;
+            }
+          } */
+          & > span:not(:nth-of-type(-1)) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* [aria-labelledby='user-menu'] {
+  background: yellow;
+  [data-ui='Popover__wrapper'] {
+    background: yellow;
+    [data-ui='Flex'] {
+      [data-ui='Flex'] {
+        [data-ui='Menu'] {
+          [data-ui='Stack'] {
+            [aria-label='Manage project'],
+            [aria-label='Invite members'],
+            hr:nth-of-type(2) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+} */
+
+[aria-labelledby='user-menu'] {
+  /* background: blue;
+  background-color: blue; */
+  [data-ui='Stack'] {
+    [aria-label='Manage project'],
+    [aria-label='Invite members'],
+    [class*='MenuDivider']:nth-of-type(2) {
+      display: none !important;
+    }
+  }
+}
+
+/* [aria-label="Invite members"] {
+  display: none;
+} */
+/* [aria-label='Manage project'],
+[aria-label='Invite members'] {
+  display: none;
+} */
+
+[class*='StyledContainer']:has(div div form .rate-stack) {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/*! this removes the border -> box-shadow inset is used to create a border
+/* [data-border] {
+  box-shadow: none !important;
+} */
+
+.th-wrap {
+  transform: rotate(45deg) translate(-30px, 35px) !important;
+  transform-origin: right;
+  background-color: transparent !important;
+  .th {
+    float: right;
+  }
+}
+
+body {
+  margin: 0 !important;
+}

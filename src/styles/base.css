@@ -1,0 +1,68 @@
+/* =========================
+Font base styles
+=========================== */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-bushwood-700;
+  }
+
+  /* Default heading face for h4-h6: area-variable at weight 600.
+     font-variation-settings is set explicitly because the 'wght' axis overrides
+     font-weight, and the body rule below leaks an inherited weight down the tree
+     that would otherwise flatten every heading back to it.
+     Both axes are read from custom properties so the .area-* and .area-italic
+     classes in typography.css can override one without resetting the other. */
+  h4,
+  h5,
+  h6 {
+    @apply font-body;
+    --fv-wght: 600;
+    font-weight: 650;
+    font-variation-settings: 'INKT' 0, 'wght' calc(var(--fv-wght) + var(--fv-wght-adjust, 0)), 'wdth' 100,
+      'slnt' var(--fv-slnt, 0);
+  }
+
+  /* h1-h3 use Revans (a static font, not a variable one — no font-variation-settings
+     axes here) instead of area-variable. Only Medium is wired up so far. */
+  h1,
+  h2,
+  h3 {
+    @apply font-heading font-medium tracking-[-1px] leading-[1];
+  }
+
+  h1 {
+    @apply text-[1.75rem] sm:text-heading-3 md:text-heading-2 xl:text-heading-1;
+  }
+  h2 {
+    @apply text-[1.75rem] sm:text-heading-4 md:text-heading-3 xl:text-heading-2;
+  }
+  h3 {
+    @apply text-heading-5 md:text-heading-4 xl:text-heading-3;
+  }
+  h4 {
+    @apply text-heading-4; 
+  }
+  h5 {
+    @apply text-heading-5;
+  }
+  h6 {
+    @apply text-heading-6;
+  }
+  body > :not(h1, h2, h3, h4, h5, h6) {
+    --fv-wght: 500;
+    font-variation-settings:
+      'INKT' 0,
+      'wght' calc(var(--fv-wght) + var(--fv-wght-adjust, 0)),
+      'wdth' 100,
+      'slnt' var(--fv-slnt, 0);
+      letter-spacing: -.15px !important;
+  }
+  p {
+    @apply text-[13px] off-black sm:text-[15px] font-[350];
+  }
+}

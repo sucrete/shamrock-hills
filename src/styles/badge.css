@@ -1,0 +1,107 @@
+/* =========================
+Site Badges Styles
+=========================== */
+@utility badge {
+  @apply inline-block text-nowrap monospaced text-secondary backdrop-blur-ns-badge-blur rounded-full px-5 py-2.5;
+}
+
+@utility badge-green {
+  @apply bg-ns-green-light ;
+}
+
+@utility badge-green-v2 {
+  @apply bg-ns-green-light ;
+}
+
+@utility badge-green-v3 {
+  @apply bg-ns-green-light text-[#00af00] ;
+}
+
+@utility badge-coral {
+  @apply bg-[#ffeedc] ;
+}
+
+@utility badge-basic {
+  @apply bg-[#f9ffd7] off-black;
+}
+
+@utility badge-ns-green-light {
+  @apply bg-ns-green-light;
+}
+
+@utility badge-yellow {
+  @apply bg-ns-yellow-light ;
+}
+
+@utility badge-yellow-v2 {
+  @apply bg-ns-yellow-light ;
+}
+
+@utility badge-cyan {
+  @apply bg-ns-cyan-light text-[#18787e] ;
+}
+
+@utility badge-cyan-v2 {
+  @apply bg-ns-cyan-light ;
+}
+
+@utility badge-gray {
+  @apply bg-accent/40 ;
+}
+
+@utility badge-gray-light {
+  @apply bg-background-3 text-secondary/60;
+}
+@utility badge-gray-light-v2 {
+  @apply bg-background-12 font-medium text-secondary;
+}
+
+@utility badge-gray-dark {
+  @apply bg-background-3 text-secondary/60;
+}
+
+@utility badge-metal {
+  @apply bg-accent/10 text-accent/60;
+}
+
+@utility badge-white {
+  @apply bg-white text-secondary/60 ;
+}
+@utility badge-white-v2 {
+  @apply bg-white text-secondary/60 font-semibold;
+}
+@utility badge-white-v3 {
+  @apply bg-white text-[#b85800] ;
+}
+
+@utility badge-primary {
+  @apply bg-background-4 text-primary-500 ;
+}
+
+@utility badge-primary-light {
+  @apply bg-primary-100 ;
+}
+
+@utility badge-blur {
+  @apply bg-accent/10 text-primary-50;
+}
+
+@utility badge-blur-v2 {
+  @apply bg-accent/20 text-primary-50 ;
+}
+
+@utility badge-blur-light {
+  @apply bg-accent/10 text-accent ;
+}
+
+@utility badge-secondary-light {
+  @apply bg-secondary/20 text-primary-50 ;
+}
+
+@utility badge-secondary {
+  @apply bg-secondary text-white font-medium;
+}
+
+.test-bed {
+  color: #ff9d47;
+}

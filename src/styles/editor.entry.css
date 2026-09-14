@@ -1,0 +1,61 @@
+/*
+  Shamrock TinyMCE Editor Styles — Source File
+  DO NOT EDIT public/editor.css directly — it is compiled from this file.
+  `npm run editor-css` compiles once; `npm run editor-css:watch` (wired into
+  `npm run dev`) recompiles on save. This stylesheet is loaded inside the
+  TinyMCE iframe (see TinyMCEInput.jsx's `content_css`) so the editing surface
+  visually matches the live site.
+*/
+
+@import url('https://use.typekit.net/wmg6bok.css');
+@import 'tailwindcss';
+
+@import './variables.css';
+@import './typography.css';
+@import './base.css';
+@import './common.css';
+@import './button.css';
+@import './badge.css';
+
+/* Revans is loaded via next/font/local on the Next.js document only — this
+   standalone stylesheet (consumed by the TinyMCE iframe) needs its own
+   @font-face to reach the same files. */
+@font-face {
+  font-family: 'Revans';
+  src: url('/fonts/Revans-Normal.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Revans';
+  src: url('/fonts/Revans-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Revans';
+  src: url('/fonts/Revans-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Revans';
+  src: url('/fonts/Revans-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* h1-h3 in base.css reference `font-heading`, which resolves to `var(--font-revans)`
+   — a class-scoped CSS var only set by next/font on the Next.js document, not present
+   in this standalone stylesheet/iframe. Override with the real face declared above. */
+body :is(h1, h2, h3) {
+  font-family: 'Revans', sans-serif;
+}
+
+/* typography.css sets html's background to the frontend's dark green overscroll
+   color — that's only meant for the live site's rubber-banding edges, not this
+   editing surface, which needs to read as a plain white page. */
+html,
+body {
+  background-color: #fff;
+}
