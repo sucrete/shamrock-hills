@@ -22,7 +22,7 @@ const SeniorLeague = async () => {
         <HalfHero
           BGHeroSrc="/images/shamrock-hills/banners/banner-6.webp"
           imageOffset="-27%"
-          imageHeight="170%"
+          imageHeight="130%"
           overlayOpacity=".35"
           heroText="Shamrock Senior League"
         />

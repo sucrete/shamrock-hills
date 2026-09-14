@@ -18,10 +18,10 @@ const BookTeeTime = () => {
     <Fragment>
       <main>
         <HalfHero
-          BGHeroSrc="/images/hero-images/hv-2.webp"
-          imageOffset="-40%"
-          imageHeight="200%"
-          overlayOpacity=".55"
+          BGHeroSrc="/images/shamrock-hills/banners/banner-3.webp"
+          imageOffset="-20%"
+          imageHeight="120%"
+          overlayOpacity=".75"
           heroText="Book Tee Time"
         />
         <BookingEngine />
