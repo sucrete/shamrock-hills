@@ -133,7 +133,7 @@ const FooterOne: FC<FooterOneProps> = ({ className }) => {
                 <p className=" text-accent/60">Events</p>
                 <ul className="space-y-0 text-center md:text-left [&_li]:leading-[130%]">
                   <li>
-                    <Link href="/greens-fees" className="footer-link">
+                    <Link href="/events" className="footer-link">
                       Calendar
                     </Link>
                   </li>
