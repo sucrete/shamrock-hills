@@ -398,7 +398,7 @@ table {
 
 /* calendar event band */
 .fc-h-event {
-  @apply bg-bushwood-900 border-none transition-all hover:bg-bushwood-800 min-h-[.5rem] ease-in-out duration-300 px-[15px] py-[3px] rounded-[2px];
+  @apply bg-bushwood-900 border-none transition-all hover:bg-bushwood-800 min-h-[.5rem] ease-in-out duration-300 px-1 md:px-[15px] py-[3px] rounded-[2px];
 }
 .fc-event-title-container {
   @apply h-fit text-center;
@@ -406,9 +406,20 @@ table {
 
 /* FullCalendar header bar */
 .fc-header-toolbar {
+  @apply relative;
   .fc-toolbar-chunk {
-    .fc-toolbar-title {
-      font-size: 47px;
+    @apply relative;
+    /* The title is always the 2nd chunk (headerToolbar's `center` slot below).
+       Taking it out of the toolbar's flex row entirely — rather than wrapping —
+       is what stops a long title from crowding the nav buttons on mobile: it's
+       absolutely positioned above them there, then re-centered inline with them
+       at md:. Ported from Wyandotte/Fire Ridge's calendar page, which has the
+       same headerToolbar layout and doesn't hit this crowding problem. */
+    &:nth-of-type(2) {
+      @apply absolute left-1/2 bottom-[3rem] md:bottom-1/2 -translate-x-1/2 -translate-y-1/2;
+      .fc-toolbar-title {
+        @apply text-[25px] md:text-[47px] text-nowrap;
+      }
     }
     &:last-of-type {
       display: flex;

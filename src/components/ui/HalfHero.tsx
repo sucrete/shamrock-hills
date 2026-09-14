@@ -27,7 +27,7 @@ const HalfHero = ({
       <div
         className="bg-scrim-top top-0 left-0 absolute h-[100%] w-[100%] -z-1"
         style={{ opacity: overlayOpacity }}></div>
-      <div className="absolute w-full bottom-5 z-5 px-2 lg:px-20 xl:px-25">
+      <div className="absolute w-full bottom-3 px-3 md:bottom-5 z-5 lg:px-20 xl:px-25">
         <RevealAnimation delay={0.1} offset={10}>
           <div className="h1-wrapper flex w-full max-w-[1920px] mx-auto">
             <div className="prophylactic">

@@ -128,23 +128,25 @@ const CalendarComponent = ({ eventsData }: { eventsData: SanityEvent[] }) => {
         {selectedEvent && (
           <div onClick={() => setSelectedEvent(null)} className="fixed inset-0 z-[1050] flex items-center justify-center bg-black/50 p-4">
             <RevealAnimation delay={0.0} useSpring={true}>
-              <div onClick={(e) => e.stopPropagation()} className="w-full max-w-[625px] bg-white rounded-[10px] overflow-hidden shadow-[0_64px_64px_-32px_rgba(0,61,61,0.1),0_32px_32px_-16px_rgba(0,61,61,0.1),0_16px_16px_-8px_rgba(0,61,61,0.1),0_0_0_1px_rgba(0,61,61,0.1)]">
-                <div className="p-12 pb-1 relative">
-                  <h3 className="font-body text-[#1d1d1d] text-[21px] semibold tracking-[-.5px] leading-[1.2] w-3/4 pb-2">
+              <div
+                onClick={(e) => e.stopPropagation()}
+                className="w-full max-w-[625px] bg-white rounded-[8px] md:rounded-[10px] overflow-hidden shadow-[0_64px_64px_-32px_rgba(0,61,61,0.1),0_32px_32px_-16px_rgba(0,61,61,0.1),0_16px_16px_-8px_rgba(0,61,61,0.1),0_0_0_1px_rgba(0,61,61,0.1)]">
+                <div className="p-6 pb-0.5 md:p-12 md:pb-1 relative">
+                  <h3 className="font-body text-[#1d1d1d] text-[18px] md:text-[21px] semibold tracking-[-.5px] leading-[1.2] w-3/4 pb-2">
                     {selectedEvent.title}
                   </h3>
                   <button
                     onClick={() => setSelectedEvent(null)}
-                    className="cursor-pointer absolute top-8 right-8 h-10 w-10 bg-[#f9f9f9] hover:bg-ns-green-light rounded-full flex items-center justify-center text-black/70 transition-all">
-                    <X className="size-[20px]" />
+                    className="cursor-pointer absolute top-5 right-5 h-8 w-8 md:top-8 md:right-8 md:h-10 md:w-10 bg-[#f9f9f9] hover:bg-ns-green-light rounded-full flex items-center justify-center text-black/70 transition-all">
+                    <X className="size-[15px] md:size-[20px]" />
                   </button>
                 </div>
 
-                <div className="px-12 pb-8 pt-0 leading-[140%]">
-                  <div className="text-[#5d5e5e] text-sm flex items-center">
+                <div className="px-6 pb-3 md:px-12 md:pb-8 pt-0 leading-[140%]">
+                  <div className="text-[#5d5e5e] text-[12px] md:text-sm flex items-center">
                     <img
                       src="/images/events/calendar.svg"
-                      className="h-3.5 w-auto mr-2.5 ml-0.5 relative -top-[1px]"
+                      className="h-3 top-[0px] md:h-3.5 w-auto mr-2.5 ml-0.5 relative md:-top-[1px]"
                       alt=""
                     />
                     <span>{moment(selectedEvent.start).format('dddd, MMM Do')}</span>
@@ -152,10 +154,10 @@ const CalendarComponent = ({ eventsData }: { eventsData: SanityEvent[] }) => {
                       <span>&nbsp;- {moment(selectedEvent.end).subtract(1, 'days').format('dddd, MMM Do')}</span>
                     )}
                   </div>
-                  <hr className="bg-[#e7e7e7] my-5 opacity-100 border-none h-[1px]" />
+                  <hr className="bg-[#e7e7e7] my-3 md:my-5 opacity-100 border-none h-[1px]" />
                   <div
                     className={cn(
-                      'whitespace-pre-line leading-[1.3] text-sm',
+                      'whitespace-pre-line leading-[1.3] text-[12px] md:text-sm',
                       selectedEvent.extendedProps.flyerQuestion || selectedEvent.extendedProps.linkQuestion
                         ? 'pb-0'
                         : 'pb-8',
@@ -165,12 +167,12 @@ const CalendarComponent = ({ eventsData }: { eventsData: SanityEvent[] }) => {
                 </div>
 
                 {(selectedEvent.extendedProps.flyerQuestion || selectedEvent.extendedProps.linkQuestion) && (
-                  <div className="px-12 pb-12 pt-2 flex flex-col md:flex-row gap-1.5 border-t border-transparent">
+                  <div className="px-6 pb-6 md:px-12 md:pb-12 pt-2 flex flex-col md:flex-row gap-1.5 border-t border-transparent">
                     {selectedEvent.extendedProps.flyerQuestion && (
                       <a
                         href={selectedEvent.extendedProps?.flyer?.asset?.url}
                         target="_blank"
-                        className="flex-1 btn-sm-dark bg-white border-bushwood-900 border-[1.5px] py-[8px] text-bushwood text-[14px] hover:text-white hover:bg-bushwood-900 before:content-none">
+                        className="flex-1 btn-sm-dark bg-white border-bushwood-900 border-[1.5px] py-[8px] text-bushwood text-[12px] md:text-[14px] hover:text-white hover:bg-bushwood-900 before:content-none">
                         View flyer
                       </a>
                     )}
@@ -178,7 +180,7 @@ const CalendarComponent = ({ eventsData }: { eventsData: SanityEvent[] }) => {
                       <a
                         target="_blank"
                         href={selectedEvent.extendedProps.linkDeets?.linkURL}
-                        className="flex-1 btn-sm-dark border-bushwood-900 bg-bushwood-900 text-accent py-[8px] text-[14px] hover:bg-bushwood-800 before:content-none">
+                        className="flex-1 btn-sm-dark border-bushwood-900 bg-bushwood-900 text-accent py-[8px] text-[12px] md:text-[14px] hover:bg-bushwood-800 before:content-none">
                         {selectedEvent.extendedProps.linkDeets.linkText}
                       </a>
                     )}
