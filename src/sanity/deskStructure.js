@@ -1,7 +1,10 @@
 // ./deskStructure.js
+import { TrashIcon } from '@sanity/icons';
+import { createBulkActionsTable } from 'sanity-plugin-bulk-actions-table';
+
 import { RateseIcon, NoticeIcon, EventIcon, EditorIcon } from './icons/icons';
 
-export const deskStructure = (S) =>
+export const deskStructure = (S, context) =>
   S.list()
     .title('Website')
     .id('website')
@@ -24,7 +27,20 @@ export const deskStructure = (S) =>
           ].includes(listItem.getId()),
       ),
 
-      S.listItem().icon(EventIcon).title('Events').child(S.documentTypeList('events').title('Events')),
+      S.listItem()
+        .icon(EventIcon)
+        .title('Events')
+        .child(
+          S.list()
+            .title('Events')
+            .items([
+              S.listItem()
+                .icon(EventIcon)
+                .title('All Events')
+                .child(S.documentTypeList('events').title('Events')),
+              createBulkActionsTable({ type: 'events', S, context, title: 'Manage', icon: TrashIcon }),
+            ]),
+        ),
       S.listItem()
         .icon(RateseIcon)
         .title('Greens Fees')

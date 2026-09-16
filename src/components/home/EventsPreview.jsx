@@ -96,7 +96,7 @@ const EventsPreview = ({ events: sanityEvents = [] }) => {
     <section className="pt-0 pb-16 md:py-20 lg:py-[200px] bg-[#fafafa] overflow-hidden">
       <div className="max-w-[1510px] mx-auto px-2 lg:px-20 xl:px-25">
         {/* bg-[radial-gradient(ellipse_500%_180%_at_40%_0%,#fff,#f6ffe6)]  */}
-        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-5 md:gap-10 lg:gap-24 relative isolate rounded-[21px] p-2 bg-[radial-gradient(ellipse_500%_180%_at_50%_0%,#fff,#f4f4f4)] overflow-hidden before:content-[''] before:absolute before:inset-0 before:-z-10 before:pointer-events-none before:bg-[url('/images/shared/noise-2.png')] before:bg-repeat before:bg-[length:180px_180px] before:opacity-30 shadow-[inset_0_2px_12px_-6px_rgba(0,0,0,0.08)] border-t-[1px] border-t-[rgba(0,0,0,0.0356)] border-b border-white">
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-2 md:gap-10 lg:gap-24 relative isolate rounded-[21px] p-2 bg-[radial-gradient(ellipse_500%_180%_at_50%_0%,#fff,#f4f4f4)] overflow-hidden before:content-[''] before:absolute before:inset-0 before:-z-10 before:pointer-events-none before:bg-[url('/images/shared/noise-2.png')] before:bg-repeat before:bg-[length:180px_180px] before:opacity-30 shadow-[inset_0_2px_12px_-6px_rgba(0,0,0,0.08)] border-t-[1px] border-t-[rgba(0,0,0,0.0356)] border-b border-white">
           {/* Left — 33% */}
           <div className="lg:col-span-1 flex flex-col justify-between p-[1rem] md:p-[2rem_0rem_2rem_2rem]">
             <div>

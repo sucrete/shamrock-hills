@@ -94,9 +94,35 @@ const FooterOne: FC<FooterOneProps> = ({ className }) => {
                   <WeatherModule />
                 </div>
               </RevealAnimation>
-              <RevealAnimation delay={0.65} offset={20}>
-                <NewsletterSignup />
-              </RevealAnimation>
+              <div className="flex flex-col text-center md:text-right md:items-end mt-8">
+                <RevealAnimation delay={0.6} offset={15}>
+                  <a className="" href="https://www.mogolf.org/" target="_blank">
+                    <Image
+                      className="w-[150px] md:w-[200px] h-auto max-md:mx-auto pb-4"
+                      src={MGALogo}
+                      width={175}
+                      height={50}
+                      alt=""
+                    />
+                  </a>
+                </RevealAnimation>
+                <div className="flex flex-col space-y-2">
+                  <RevealAnimation delay={0.7} offset={7} start="top 105%">
+                    <Link href="/studio" className="" target="_blank">
+                      <p className="text-accent/60 pt-1">
+                        Copyright Shamrock Hills Golf Club © {new Date().getFullYear()}
+                      </p>
+                    </Link>
+                  </RevealAnimation>
+
+                  <RevealAnimation delay={0.8} offset={7} start="top 105%">
+                    <div className="TQS-attribution-wrapper flex flex-row justify-center md:justify-end">
+                      <TQSGears />
+                      <p className="text-accent/60">Powered by TeeQuest</p>
+                    </div>
+                  </RevealAnimation>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -104,8 +130,8 @@ const FooterOne: FC<FooterOneProps> = ({ className }) => {
           <hr className="border-[#ffffff19]" />
         </RevealAnimation>
 
-        <div className="grid grid-cols-1 md:grid-cols-[22%_22%_22%_34%] pt-[4rem] px-2 max-md:space-y-5">
-          <div className="space-y-5">
+        <div className="grid grid-cols-1 md:grid-cols-5 pt-[4rem] px-2 max-md:space-y-7 max-md:pb-[5.5rem]">
+          <div className="">
             <RevealAnimation delay={0.1} offset={15}>
               <div className="space-y-3 flex flex-col items-center md:items-start">
                 <p className=" text-accent/60">Pages</p>
@@ -128,25 +154,8 @@ const FooterOne: FC<FooterOneProps> = ({ className }) => {
                 </ul>
               </div>
             </RevealAnimation>
-            <RevealAnimation delay={0.2} offset={15}>
-              <div className="space-y-3 flex flex-col items-center md:items-start">
-                <p className=" text-accent/60">Events</p>
-                <ul className="space-y-0 text-center md:text-left [&_li]:leading-[130%]">
-                  <li>
-                    <Link href="/events" className="footer-link">
-                      Calendar
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/events/tournaments" className="footer-link">
-                      Tournaments
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </RevealAnimation>
           </div>
-          <div className="space-y-5">
+          <div className="">
             <RevealAnimation delay={0.3} offset={15}>
               <div className="space-y-3 flex flex-col items-center md:items-start">
                 <p className=" text-accent/60">Leagues</p>
@@ -169,26 +178,9 @@ const FooterOne: FC<FooterOneProps> = ({ className }) => {
                 </ul>
               </div>
             </RevealAnimation>
-            <RevealAnimation delay={0.4} offset={15}>
-              <div className="space-y-3 flex flex-col items-center md:items-start">
-                <p className=" text-accent/60">Golf Assoc.</p>
-                <ul className="space-y-0 text-center md:text-left [&_li]:leading-[130%]">
-                  <li>
-                    <Link href="/golf-association" className="footer-link">
-                      SHGA Home
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/golf-association/match-play" className="footer-link">
-                      Match Play
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </RevealAnimation>
           </div>
           <div className="">
-            <RevealAnimation className='max-md:pb-[3rem]' delay={0.5} offset={15}>
+            <RevealAnimation className="" delay={0.5} offset={15}>
               <div className="space-y-3 flex flex-col items-center md:items-start">
                 <p className=" text-accent/60">About</p>
                 <ul className="space-y-0 text-center md:text-left [&_li]:leading-[130%]">
@@ -211,39 +203,45 @@ const FooterOne: FC<FooterOneProps> = ({ className }) => {
               </div>
             </RevealAnimation>
           </div>
-          <div className="max-md:border-t max-md:border-[#ffffff19] max-md:pt-[4rem] max-md:pb-[4.5rem]">
-            <div className="flex flex-col justify-between h-full text-center md:text-right md:items-end">
-              <RevealAnimation delay={0.6} offset={15}>
-                <a className='' href="https://www.mogolf.org/" target="_blank">
-                  <Image className="w-[150px] md:w-[200px] h-auto max-md:mx-auto max-md:pb-4" src={MGALogo} width={175} height={50} alt="" />
-                </a>
-              </RevealAnimation>
-              <div className="flex flex-col space-y-2">
-                <RevealAnimation delay={0.7} offset={7} start="top 105%">
-                  <Link href="/studio" className="" target="_blank">
-                    <p className="text-accent/60 pt-1">
-                      Copyright Shamrock Hills Golf Club © {new Date().getFullYear()}
-                    </p>
-                  </Link>
-                </RevealAnimation>
-
-                <RevealAnimation delay={0.8} offset={7} start="top 105%">
-                  <div className="TQS-attribution-wrapper flex flex-row justify-center md:justify-end">
-                    <TQSGears />
-                    <p className="text-accent/60">Powered by TeeQuest</p>
-                  </div>
-                </RevealAnimation>
+          <div>
+            <RevealAnimation delay={0.2} offset={15}>
+              <div className="space-y-3 flex flex-col items-center md:items-start">
+                <p className=" text-accent/60">Events</p>
+                <ul className="space-y-0 text-center md:text-left [&_li]:leading-[130%]">
+                  <li>
+                    <Link href="/events" className="footer-link">
+                      Calendar
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/events/tournaments" className="footer-link">
+                      Tournaments
+                    </Link>
+                  </li>
+                </ul>
               </div>
-            </div>
+            </RevealAnimation>
+          </div>
+          <div>
+            <RevealAnimation delay={0.4} offset={15}>
+              <div className="space-y-3 flex flex-col items-center md:items-start">
+                <p className=" text-accent/60">Golf Assoc.</p>
+                <ul className="space-y-0 text-center md:text-left [&_li]:leading-[130%]">
+                  <li>
+                    <Link href="/golf-association" className="footer-link">
+                      SHGA Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/golf-association/match-play" className="footer-link">
+                      Match Play
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </RevealAnimation>
           </div>
         </div>
-        {/* <div className="relative pt-[35px] pb-[100px] text-center">
-          <RevealAnimation delay={1} offset={5} duration={2}>
-            <figure className="max-w-full">
-              <Image className="w-full" src={TextualLogo} width={400} height={400} alt="" />
-            </figure>
-          </RevealAnimation>
-        </div> */}
       </div>
     </footer>
   );
