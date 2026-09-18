@@ -30,7 +30,7 @@ const Hero = async () => {
         offset="-20%"
         sizes="(max-width: 768px) 200vw, 100vw"
       />
-      <div className="top-0 left-0 absolute h-[100%] w-[100%] -z-1 bg-scrim-hero-darker opacity-90"></div>
+      <div className="top-0 left-0 absolute h-[100%] w-[100%] -z-1 bg-scrim-hero-darker opacity-70"></div>
 
       <div className="facebook-link absolute left-6 md:left-[6.25rem] bottom-[3rem] md:bottom-10 hidden md:block w-fit">
         <RevealAnimation delay={0.8} direction="left" offset={5}>

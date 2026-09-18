@@ -156,7 +156,7 @@ const FooterOne: FC<FooterOneProps> = ({ className }) => {
             </RevealAnimation>
           </div>
           <div className="">
-            <RevealAnimation delay={0.3} offset={15}>
+            <RevealAnimation delay={0.2} offset={15}>
               <div className="space-y-3 flex flex-col items-center md:items-start">
                 <p className=" text-accent/60">Leagues</p>
                 <ul className="space-y-0 text-center md:text-left [&_li]:leading-[130%]">
@@ -180,7 +180,7 @@ const FooterOne: FC<FooterOneProps> = ({ className }) => {
             </RevealAnimation>
           </div>
           <div className="">
-            <RevealAnimation className="" delay={0.5} offset={15}>
+            <RevealAnimation className="" delay={0.3} offset={15}>
               <div className="space-y-3 flex flex-col items-center md:items-start">
                 <p className=" text-accent/60">About</p>
                 <ul className="space-y-0 text-center md:text-left [&_li]:leading-[130%]">
@@ -204,7 +204,7 @@ const FooterOne: FC<FooterOneProps> = ({ className }) => {
             </RevealAnimation>
           </div>
           <div>
-            <RevealAnimation delay={0.2} offset={15}>
+            <RevealAnimation delay={0.4} offset={15}>
               <div className="space-y-3 flex flex-col items-center md:items-start">
                 <p className=" text-accent/60">Events</p>
                 <ul className="space-y-0 text-center md:text-left [&_li]:leading-[130%]">
@@ -223,7 +223,7 @@ const FooterOne: FC<FooterOneProps> = ({ className }) => {
             </RevealAnimation>
           </div>
           <div>
-            <RevealAnimation delay={0.4} offset={15}>
+            <RevealAnimation delay={0.5} offset={15}>
               <div className="space-y-3 flex flex-col items-center md:items-start">
                 <p className=" text-accent/60">Golf Assoc.</p>
                 <ul className="space-y-0 text-center md:text-left [&_li]:leading-[130%]">
