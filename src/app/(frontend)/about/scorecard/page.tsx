@@ -19,7 +19,7 @@ const Scorecard = () => {
       <main className="bg-background-4">
         <HalfHero
           BGHeroSrc="/images/shamrock-hills/banners/banner-4.webp"
-          imageOffset="-12%"
+          imageOffset="-15%"
           imageHeight="120%"
           overlayOpacity=".7"
           heroText="Scorecard"

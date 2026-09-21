@@ -1014,6 +1014,31 @@ own GSAP tween, not CSS.)
   }
 }
 
+/* =========================
+Footer tooltip (Radix Tooltip) fade, same reasoning as the lightbox keyframes
+above — Radix mounts Content already at its final data-state, so a plain
+@keyframes animation is needed instead of a transition. Apply directly on
+Tooltip.Content via Tailwind, e.g.:
+  data-[state=delayed-open]:animate-[tooltip-fade-in_150ms_ease-out]
+  data-[state=closed]:animate-[tooltip-fade-out_100ms_ease-in]
+=========================== */
+@keyframes tooltip-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes tooltip-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 /* Browser autofill (e.g. Chrome's saved-info quick-fill) paints its own
    opaque white background + dark text via internal UA styling that ordinary
    `background`/`color` can't override — even with `!important`. The inset

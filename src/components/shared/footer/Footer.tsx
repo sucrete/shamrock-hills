@@ -3,11 +3,11 @@ import { cn } from '@/utils/cn';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
+import * as Tooltip from '@radix-ui/react-tooltip';
 
 import Logo from '@public/images/logos/sh-logo-white.svg';
 import MGALogo from '@public/images/shared/mga-logo.svg';
-import facebook from '@public/images/icons/facebook.svg';
-import instagram from '@public/images/icons/instagram.svg';
+import facebook from '@public/images/icons/fb-white.png';
 
 import WeatherModule from './WeatherModule';
 import NewsletterSignup from './NewsletterSignup';
@@ -39,20 +39,28 @@ const FooterOne: FC<FooterOneProps> = ({ className }) => {
             </RevealAnimation>
             <RevealAnimation delay={0.25} offset={10}>
               <div className="flex justify-center items-center gap-3 mt-5 max-w-[100%] md:max-w-[200px]">
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.facebook.com/ShamrockHillsGolfClub"
-                  className="footer-social-link">
-                  <span className="sr-only">Facebook</span>
-                  <Image className="size-6" src={facebook} alt="Facebook" />
-                </a>
-                <div className="bg-stroke-1/25 h-6 w-px"></div>
-                {/* TODO: swap in Shamrock Hills' real Instagram URL once confirmed. */}
-                <a target="_blank" rel="noopener noreferrer" href="#" className="footer-social-link">
-                  <span className="sr-only">Instagram</span>
-                  <Image className="size-6" src={instagram} alt="Instagram" />
-                </a>
+                <Tooltip.Provider delayDuration={200}>
+                  <Tooltip.Root>
+                    <Tooltip.Trigger asChild>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://www.facebook.com/ShamrockHillsGolfClub"
+                        className="">
+                        <span className="sr-only">Facebook</span>
+                        <Image className="size-6" src={facebook} alt="Facebook" />
+                      </a>
+                    </Tooltip.Trigger>
+                    <Tooltip.Portal>
+                      <Tooltip.Content
+                        sideOffset={6}
+                        className="data-[state=delayed-open]:animate-[tooltip-fade-in_150ms_ease-out] data-[state=closed]:animate-[tooltip-fade-out_100ms_ease-in] bg-accent px-3 py-1 rounded-sm text-[13px] shadow-md/70">
+                        Facebook
+                        <Tooltip.Arrow className="fill-accent"/>
+                      </Tooltip.Content>
+                    </Tooltip.Portal>
+                  </Tooltip.Root>
+                </Tooltip.Provider>
               </div>
             </RevealAnimation>
           </div>

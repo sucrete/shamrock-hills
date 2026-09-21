@@ -21,8 +21,8 @@ const LessonsPage = async () => {
       <main className="bg-background-2">
         <HalfHero
           BGHeroSrc="/images/shamrock-hills/banners/banner-7.webp"
-          imageOffset="-7%"
-          imageHeight="120%"
+          imageOffset="-14%"
+          imageHeight="140%"
           overlayOpacity=".7"
           heroText="Lessons"
         />

@@ -25,8 +25,8 @@ const GreensFees = async () => {
       <main>
         <HalfHero
           BGHeroSrc="/images/shamrock-hills/banners/banner-1.webp"
-          imageOffset="-6%"
-          imageHeight="120%"
+          imageOffset="-15%"
+          imageHeight="140%"
           overlayOpacity=".4"
           heroText="Greens Fees"
         />

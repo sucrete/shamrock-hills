@@ -25,7 +25,7 @@ const Tournaments = async () => {
           imageOffset="-15%"
           imageHeight="170%"
           overlayOpacity=".35"
-          heroText="Events"
+          heroText="Tournaments"
         />
         {data?.body && (
           <section className="py-20 md:py-28 lg:py-[140px]">
