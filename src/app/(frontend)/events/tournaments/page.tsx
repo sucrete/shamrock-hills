@@ -22,10 +22,10 @@ const Tournaments = async () => {
       <main className="bg-background-2">
         <HalfHero
           BGHeroSrc="/images/shamrock-hills/banners/banner-5.webp"
-          imageOffset="-10%"
+          imageOffset="-15%"
           imageHeight="170%"
           overlayOpacity=".35"
-          heroText="Tournaments"
+          heroText="Events"
         />
         {data?.body && (
           <section className="py-20 md:py-28 lg:py-[140px]">
