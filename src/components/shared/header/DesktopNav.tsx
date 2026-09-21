@@ -113,7 +113,7 @@ const DesktopNav = ({ entries, dark }: DesktopNavProps) => {
                       <NavigationMenu.Link asChild>
                         <Link
                           href={item.href}
-                          className="block rounded-[10px] px-3.5 pt-[8px] pb-[9px] text-[14px] text-secondary/80 transition-colors duration-200 hover:bg-[#005a480d] hover:text-secondary">
+                          className="block rounded-[10px] px-3.5 pt-[8px] pb-[9px] text-[14px] text-secondary/80 transition-colors duration-200 hover:bg-[#55555513] hover:text-secondary">
                           {item.label}
                         </Link>
                       </NavigationMenu.Link>

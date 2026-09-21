@@ -2,8 +2,10 @@
 
 import { FormEvent, useState } from 'react';
 import Image from 'next/image';
+import moment from 'moment';
 import RevealAnimation from '../animation/RevealAnimation';
 import { FormField, inputClass } from '../shared/forms/FormField';
+import DatePicker from '../ui/DatePicker';
 import { useFormSubmit } from '@/utils/useFormSubmit';
 import { validateRequired, validateEmail, validatePhone, validateNumber } from '@/utils/formValidation';
 import golferOnFairway from '@public/images/shamrock-hills/gallery/sh-13.webp';
@@ -56,7 +58,16 @@ const TournamentInquiryForm = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validate()) return;
-    await submit(fields);
+    // Keys here must match the {{variables}} in the EmailJS template
+    // (template_0jl4d3v), not this form's own field names.
+    await submit({
+      submitters_name: fields.name,
+      submitters_email: fields.email,
+      submitters_phone: fields.phone,
+      desired_date: moment(fields.eventDate).format('MMMM Do, YYYY'),
+      guest_count: fields.players,
+      submitters_message: fields.message,
+    });
   };
 
   if (status === 'success') {
@@ -130,13 +141,11 @@ const TournamentInquiryForm = () => {
               </FormField>
 
               <FormField id="eventDate" label="Event Date" required error={errors.eventDate}>
-                <input
+                <DatePicker
                   id="eventDate"
-                  name="eventDate"
-                  type="date"
                   value={fields.eventDate}
-                  onChange={handleChange('eventDate')}
-                  className={inputClass}
+                  onChange={(next) => setFields((prev) => ({ ...prev, eventDate: next }))}
+                  minDate={moment().format('YYYY-MM-DD')}
                 />
               </FormField>
             </div>

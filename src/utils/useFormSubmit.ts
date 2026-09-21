@@ -7,6 +7,7 @@ export type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 const TEMPLATE_IDS: Record<string, string | undefined> = {
   'tournament-inquiry': process.env.NEXT_PUBLIC_EMAILJS_TOURNAMENT_TEMPLATE_ID,
+  contact: process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID,
 };
 
 export function useFormSubmit(formType: string) {

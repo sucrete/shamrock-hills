@@ -65,7 +65,7 @@ const FooterOne: FC<FooterOneProps> = ({ className }) => {
             </RevealAnimation>
           </div>
           <div className="col-span-16 grid grid-cols-1 md:gap-x-10 gap-y-12 md:grid-cols-3 md:gap-y-8 lg:col-span-12">
-            <div className="space-y-6 pt-4 col-span-1 max-md:**:text-center">
+            <div className="space-y-6 pt-4 md:pt-2 col-span-1 max-md:**:text-center">
               <RevealAnimation delay={0.3} offset={15}>
                 <p className="text-accent/60 pb-2">Hours</p>
                 <p className="text-accent md:max-w-[306px]">
