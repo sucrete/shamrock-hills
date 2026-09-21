@@ -70,7 +70,7 @@ const CalendarComponent = ({ eventsData }: { eventsData: SanityEvent[] }) => {
             .map((seg: any) => {
               const isToday = moment().isBetween(moment(seg.range.start), moment(seg.range?.end), undefined, '[]');
               return `
-              <div class="p-[2.25rem_2.25rem_3rem_2.25rem] w-full rounded-[20px] border border-[#80808021] transition-all duration-250 relative z-[7] hover:border-[#e8e8e8] hover:z-[77] hover:realistic-shadow-light ${isToday ? `bg-white bg-[position:top_right] bg-no-repeat bg-size-[auto_100px] ` : 'bg-white'}">
+              <div class=" w-full rounded-[20px] border border-[#80808021] transition-all duration-250 relative z-[7] hover:border-[#e8e8e8] hover:z-[77] hover:realistic-shadow-light ${isToday ? `bg-white bg-[position:top_right] bg-no-repeat bg-size-[auto_100px]` : 'bg-white'} ${(seg.def.extendedProps.linkQuestion || seg.def.extendedProps.flyerQuestion) ? 'p-[2.25rem_2.25rem_2.5rem_2.25rem]' : 'p-[2.25rem_2.25rem_3rem_2.25rem]'}">
 
                 <div class="font-body text-[#1d1d1d] text-[18px] semibold tracking-[-.5px] pb-2 leading-[1.2]">${seg.def.title}</div>
 
@@ -126,12 +126,14 @@ const CalendarComponent = ({ eventsData }: { eventsData: SanityEvent[] }) => {
       <div className="main-container mx-auto px-4 mt-3 lg:mt-10">
         {/* Modal Reproduction with Tailwind */}
         {selectedEvent && (
-          <div onClick={() => setSelectedEvent(null)} className="fixed inset-0 z-[1050] flex items-center justify-center bg-black/50 p-4">
+          <div
+            onClick={() => setSelectedEvent(null)}
+            className="fixed inset-0 z-[1050] flex items-center justify-center bg-black/50 p-4">
             <RevealAnimation delay={0.0} useSpring={true}>
               <div
                 onClick={(e) => e.stopPropagation()}
-                className="w-full max-w-[625px] bg-white rounded-[8px] md:rounded-[10px] overflow-hidden shadow-[0_64px_64px_-32px_rgba(0,61,61,0.1),0_32px_32px_-16px_rgba(0,61,61,0.1),0_16px_16px_-8px_rgba(0,61,61,0.1),0_0_0_1px_rgba(0,61,61,0.1)]">
-                <div className="p-6 pb-0.5 md:p-12 md:pb-1 relative">
+                className="w-full md:min-w-[580px] max-w-[580px] bg-white rounded-[8px] md:rounded-[10px] overflow-hidden shadow-[0_64px_64px_-32px_rgba(0,61,61,0.3),0_32px_32px_-16px_rgba(0,61,61,0.3),0_16px_16px_-8px_rgba(0,61,61,0.3),0_0_0_1px_rgba(0,61,61,0.3)]">
+                <div className="p-6 pb-0.5 md:p-10 md:pb-1 relative">
                   <h3 className="font-body text-[#1d1d1d] text-[18px] md:text-[21px] semibold tracking-[-.5px] leading-[1.2] w-3/4 pb-2">
                     {selectedEvent.title}
                   </h3>
@@ -142,7 +144,7 @@ const CalendarComponent = ({ eventsData }: { eventsData: SanityEvent[] }) => {
                   </button>
                 </div>
 
-                <div className="px-6 pb-3 md:px-12 md:pb-8 pt-0 leading-[140%]">
+                <div className="px-6 pb-3 md:px-10 md:pb-8 pt-0 leading-[140%]">
                   <div className="text-[#5d5e5e] text-[12px] md:text-sm flex items-center">
                     <img
                       src="/images/events/calendar.svg"
@@ -167,7 +169,7 @@ const CalendarComponent = ({ eventsData }: { eventsData: SanityEvent[] }) => {
                 </div>
 
                 {(selectedEvent.extendedProps.flyerQuestion || selectedEvent.extendedProps.linkQuestion) && (
-                  <div className="px-6 pb-6 md:px-12 md:pb-12 pt-2 flex flex-col md:flex-row gap-1.5 border-t border-transparent">
+                  <div className="px-6 pb-6 md:px-10 md:pb-12 pt-2 flex flex-col md:flex-row gap-1.5 border-t border-transparent">
                     {selectedEvent.extendedProps.flyerQuestion && (
                       <a
                         href={selectedEvent.extendedProps?.flyer?.asset?.url}

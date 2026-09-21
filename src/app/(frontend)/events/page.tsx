@@ -22,8 +22,8 @@ const Events = async () => {
       <main>
         <HalfHero
           BGHeroSrc="/images/shamrock-hills/banners/banner-5.webp"
-          imageOffset="-10%"
-          imageHeight="160%"
+          imageOffset="-15%"
+          imageHeight="170%"
           overlayOpacity=".35"
           heroText="Events"
         />
