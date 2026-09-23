@@ -20,10 +20,6 @@ interface Hole {
   videoId: string | null;
 }
 
-// Video IDs pulled from shamrockhills.com/About/CourseTour. Holes 5 and 13
-// have no video on the live site ("Coming soon...") — Hole 5's scraped ID
-// (un5KFa6X884) 404s on YouTube's oEmbed endpoint, a dead link on the live
-// site itself, not a scraping error.
 const HOLES: Hole[] = [
   { number: 1, videoId: 'Gju_d87UP5Q' },
   { number: 2, videoId: 'CJRk2lzDlF4' },

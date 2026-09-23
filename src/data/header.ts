@@ -2,6 +2,7 @@ export interface NavLink {
   id: string;
   label: string;
   href: string;
+  external?: boolean;
 }
 
 export interface NavGroup {
@@ -33,6 +34,13 @@ export const navLeft: NavEntry[] = [
       { id: 'ladies', label: 'Ladies League', href: '/leagues/ladies' },
       { id: 'senior', label: 'Shamrock Senior League', href: '/leagues/senior' },
     ],
+  },
+  {
+    kind: 'link',
+    id: 'online-store',
+    label: 'Online Store',
+    href: 'https://onlinestore.shamrockhills.com/OnlineStore',
+    external: true,
   },
 ];
 

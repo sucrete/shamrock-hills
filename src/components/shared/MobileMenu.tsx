@@ -113,7 +113,8 @@ const MobileMenu = () => {
                     <Link
                       href={entry.href}
                       onClick={closeMenu}
-                      className="block py-2 text-[14px] medium text-black hover:text-black transition-colors">
+                      className="block py-2 text-[14px] medium text-black hover:text-black transition-colors"
+                      {...(entry.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
                       {entry.label}
                     </Link>
                   </li>

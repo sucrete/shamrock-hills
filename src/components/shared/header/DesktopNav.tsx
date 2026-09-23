@@ -84,7 +84,10 @@ const DesktopNav = ({ entries, dark }: DesktopNavProps) => {
           entry.kind === 'link' ? (
             <NavigationMenu.Item key={entry.id}>
               <NavigationMenu.Link asChild>
-                <Link href={entry.href} className={itemTextClass}>
+                <Link
+                  href={entry.href}
+                  className={itemTextClass}
+                  {...(entry.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
                   {entry.label}
                 </Link>
               </NavigationMenu.Link>
