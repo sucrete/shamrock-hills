@@ -56,7 +56,7 @@ const FooterOne: FC<FooterOneProps> = ({ className }) => {
                         sideOffset={6}
                         className="data-[state=delayed-open]:animate-[tooltip-fade-in_150ms_ease-out] data-[state=closed]:animate-[tooltip-fade-out_100ms_ease-in] bg-accent px-3 py-1 rounded-sm text-[13px] shadow-md/70">
                         Facebook
-                        <Tooltip.Arrow className="fill-accent"/>
+                        <Tooltip.Arrow className="fill-accent" />
                       </Tooltip.Content>
                     </Tooltip.Portal>
                   </Tooltip.Root>
@@ -124,10 +124,12 @@ const FooterOne: FC<FooterOneProps> = ({ className }) => {
                   </RevealAnimation>
 
                   <RevealAnimation delay={0.8} offset={7} start="top 105%">
-                    <div className="TQS-attribution-wrapper flex flex-row justify-center md:justify-end">
-                      <TQSGears />
-                      <p className="text-accent/60">Powered by TeeQuest</p>
-                    </div>
+                    <a href="https://portal.teequest.net/portal/logon?ReturnUrl=%2fportal" target="_blank">
+                      <div className="TQS-attribution-wrapper flex flex-row justify-center md:justify-end">
+                        <TQSGears />
+                        <p className="text-accent/60">Powered by TeeQuest</p>
+                      </div>
+                    </a>
                   </RevealAnimation>
                 </div>
               </div>

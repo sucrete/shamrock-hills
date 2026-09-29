@@ -5,6 +5,7 @@ import { visionTool } from '@sanity/vision';
 import { media } from 'sanity-plugin-media';
 
 import { deskStructure } from './deskStructure';
+import { emailMarketingTool } from './tools/EmailMarketingTool';
 
 import './custom.css';
 
@@ -19,7 +20,7 @@ export default defineConfig({
   plugins: isDev
     ? [
         structureTool({
-          title: 'Content',
+          title: 'Website',
           structure: deskStructure,
         }),
         media(),
@@ -27,11 +28,13 @@ export default defineConfig({
       ]
     : [
         structureTool({
-          title: 'Content',
+          title: 'Website',
           structure: deskStructure,
         }),
         media(),
       ],
+
+  tools: (prev) => [...prev, emailMarketingTool],
 
   releases: {
     enabled: false,
