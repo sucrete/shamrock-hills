@@ -5,7 +5,7 @@ import { visionTool } from '@sanity/vision';
 import { media } from 'sanity-plugin-media';
 
 import { deskStructure } from './deskStructure';
-import { emailMarketingTool } from './tools/EmailMarketingTool';
+// import { emailMarketingTool } from './tools/EmailMarketingTool';
 
 import './custom.css';
 
@@ -34,7 +34,7 @@ export default defineConfig({
         media(),
       ],
 
-  tools: (prev) => [...prev, emailMarketingTool],
+  // tools: (prev) => [...prev, emailMarketingTool],
 
   releases: {
     enabled: false,
