@@ -124,7 +124,7 @@ const FooterOne: FC<FooterOneProps> = ({ className }) => {
                   </RevealAnimation>
 
                   <RevealAnimation delay={0.8} offset={7} start="top 105%">
-                    <a href="https://portal.teequest.net/portal/logon?ReturnUrl=%2fportal" target="_blank">
+                    <a href="https://portal.teequest.net/portal/" target="_blank">
                       <div className="TQS-attribution-wrapper flex flex-row justify-center md:justify-end">
                         <TQSGears />
                         <p className="text-accent/60">Powered by TeeQuest</p>
