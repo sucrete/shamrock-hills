@@ -29,6 +29,15 @@ interface SanityEvent {
   };
 }
 
+// The month-list view below is built as an HTML string, so Sanity text must be escaped by hand.
+const escapeHtml = (value: unknown) =>
+  String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
 const CalendarComponent = ({ eventsData }: { eventsData: SanityEvent[] }) => {
   const events = eventsData.map(({ _id, end, multidayEvent, ...rest }) => ({
     id: _id,
@@ -72,7 +81,7 @@ const CalendarComponent = ({ eventsData }: { eventsData: SanityEvent[] }) => {
               return `
               <div class=" w-full rounded-[20px] border border-[#80808021] transition-all duration-250 relative z-[7] hover:border-[#e8e8e8] hover:z-[77] hover:realistic-shadow-light ${isToday ? `bg-white bg-[position:top_right] bg-no-repeat bg-size-[auto_100px]` : 'bg-white'} ${(seg.def.extendedProps.linkQuestion || seg.def.extendedProps.flyerQuestion) ? 'p-[2.25rem_2.25rem_2.5rem_2.25rem]' : 'p-[2.25rem_2.25rem_3rem_2.25rem]'}">
 
-                <div class="font-body text-[#1d1d1d] text-[18px] semibold tracking-[-.5px] pb-2 leading-[1.2]">${seg.def.title}</div>
+                <div class="font-body text-[#1d1d1d] text-[18px] semibold tracking-[-.5px] pb-2 leading-[1.2]">${escapeHtml(seg.def.title)}</div>
 
                 <div class="text-[#5d5e5e] text-sm md:text-[14px]">
                   <img src="/images/events/calendar.svg" class="inline-block h-3 w-auto mr-2.5 ml-0.5 relative -top-[1.5px]" alt=""/>
@@ -85,12 +94,12 @@ const CalendarComponent = ({ eventsData }: { eventsData: SanityEvent[] }) => {
                   ${isToday ? '<span class=" monospaced-medium text-black bg-[#fffbca] rounded-md px-2.5 py-[3.5px] border-[#f9f5c5] border ml-2 relative -top-[2.5px] shadow-1">today</span> ' : ''}
                 </div>
                 <hr class="bg-black/10 mb-1 mt-3 opacity-100 border-none h-[1px]"/>
-                <div class="pt-2 text-black whitespace-pre-line leading-[1.3] text-sm md:text-[14px]">${seg.def.extendedProps.eventDescription}</div>
+                <div class="pt-2 text-black whitespace-pre-line leading-[1.3] text-sm md:text-[14px]">${escapeHtml(seg.def.extendedProps.eventDescription)}</div>
                 <div class=" flex flex-col md:flex-row gap-1.5 ${!(seg.def.extendedProps.linkQuestion || seg.def.extendedProps.flyerQuestion) ? 'p-0' : 'pt-5'}">
                    ${
                      seg.def.extendedProps.flyerQuestion
                        ? `
-                    <a href=${seg.def.extendedProps?.flyer?.asset?.url} target="_blank" class="btn-sm-dark bg-white border-bushwood-900 border-[1.5px] text-bushwood hover:text-white hover:bg-bushwood-900">
+                    <a href="${escapeHtml(seg.def.extendedProps?.flyer?.asset?.url)}" target="_blank" rel="noopener noreferrer" class="btn-sm-dark bg-white border-bushwood-900 border-[1.5px] text-bushwood hover:text-white hover:bg-bushwood-900">
                       <span>View flyer</span>
                     </a>`
                        : ''
@@ -98,8 +107,8 @@ const CalendarComponent = ({ eventsData }: { eventsData: SanityEvent[] }) => {
                    ${
                      seg.def.extendedProps.linkQuestion
                        ? `
-                    <a href=${seg.def.extendedProps.linkDeets.linkURL} target="_blank" class="btn-sm-dark border-bushwood-900 bg-bushwood-900 text-accent hover:bg-bushwood-800">
-                      <span>${seg.def.extendedProps.linkDeets.linkText}</span>
+                    <a href="${escapeHtml(seg.def.extendedProps.linkDeets?.linkURL)}" target="_blank" rel="noopener noreferrer" class="btn-sm-dark border-bushwood-900 bg-bushwood-900 text-accent hover:bg-bushwood-800">
+                      <span>${escapeHtml(seg.def.extendedProps.linkDeets?.linkText)}</span>
                     </a>`
                        : ''
                    }

@@ -12,7 +12,10 @@ export const EVENTS_QUERY = defineQuery(`*[_type == "events"] {
   },
   linkDeets {
     linkText,
-    linkURL
+    "linkURL": select(
+      string::startsWith(lower(linkURL), "http://") || string::startsWith(lower(linkURL), "https://") => linkURL,
+      defined(linkURL) => "https://" + linkURL
+    )
   }
 }`)
 
